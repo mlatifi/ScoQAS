@@ -1,16 +1,13 @@
 # -*- coding: utf-8 -*-
-#!/pkg/ldc/bin/python2.5
+#!/pkg/ldc/bin/python2.7.8
 #-----------------------------------------------------------------------------
 # Name:        representingSentences.py
 #
-# Author:      Horacio
+# Author:      Majid
 #
 # Created:     2014/04/28
 # representing sentences
 #-----------------------------------------------------------------------------
-
-##user = 'horacioCluster'
-##user = 'horacioWindowsLSI'
 user = 'majid'
 
 import re
