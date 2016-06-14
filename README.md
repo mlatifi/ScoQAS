@@ -15,5 +15,5 @@ Each components are released in their own branch. Check each componets's README 
 - [QC/](https://github.com/mlatifi/OntoQAS/tree/QC) - Question Classifier
 
 - [Constraints/](https://github.com/mlatifi/OntoQAS/tree/Constraints) - Building Constraints
-- 
+
 This project is built by **Majid Latifi** .
