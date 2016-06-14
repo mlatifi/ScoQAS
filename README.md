@@ -23,3 +23,5 @@ Each components are released in their own branch. Check each componets's README 
 This project is built by **Majid Latifi** .
 
 # License:
+
+- See [LICENSE/](https://github.com/mlatifi/OntoQAS/blob/LICENSE) - Building NSIF
