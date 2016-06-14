@@ -16,4 +16,6 @@ Each components are released in their own branch. Check each componets's README 
 
 - [Constraints/](https://github.com/mlatifi/OntoQAS/tree/Constraints) - Building Constraints
 
+- [Graph-Construction/](https://github.com/mlatifi/OntoQAS/blob/Graph-Construction) - Graph Construction
+
 This project is built by **Majid Latifi** .
