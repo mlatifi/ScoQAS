@@ -162,3 +162,8 @@ incurred by, or claims asserted against, such Contributor by reason of your
 accepting any such warranty or additional liability.
 
 END OF TERMS AND CONDITIONS
+
+Copyright [2016] [Majid Latifi]
+
+   Licensed under the OntoQAS License, Version 1.0 (the "License");
+   you may not use this file except in compliance with the License.
