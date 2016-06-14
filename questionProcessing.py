@@ -362,15 +362,6 @@ databaseRules['WoPropPr_1'].addAction(QTclassAction('bindWho','bindWho(s,r,0)'))
 # databaseRules['HmchPropPr_1'].addAction(QTclassAction('bindProperties','bindProperties(s,r)'))
 
 #
-# databaseRules['WnPrProp_1']=QTclassrule('WnPrProp_1','When_Person_Properties')
-# databaseRules['WnPrProp_1'].addCondition(QTclasscondition('CWhen','isWhen(s,r,0)'))
-# databaseRules['WnPrProp_1'].addCondition(QTclasscondition('isPerson','isPerson(s,r)'))
-# databaseRules['WnPrProp_1'].addCondition(QTclasscondition('isProperties','isProperties(s,r)'))
-# databaseRules['WnPrProp_1'].addAction(QTclassAction('bindWhen','bindWhen(s,r,0)'))
-# databaseRules['WnPrProp_1'].addAction(QTclassAction('bindPerson','bindPerson(s,r)'))
-# databaseRules['WnPrProp_1'].addAction(QTclassAction('bindProperties','bindProperties(s,r)'))
-
-#
 # databaseRules['WtASt_1']=QTclassrule('WtASt_1','What_Action_Status')
 # databaseRules['WtASt_1'].addCondition(QTclasscondition('CWhat','isWhat(s,r,0)'))
 # databaseRules['WtASt_1'].addCondition(QTclasscondition('isAction','isAction(s,r)'))
@@ -436,10 +427,6 @@ R=applyRuleToSentence(databaseRules['WoPropPr_1'],sentences[23])
 # print "Sentence is :", sentences[iS]._text()
 # R=applyRulesToSentences('all','all')
 # R=applyRulesToSentence('all',iS)
-
-# removeTreesFromSentences()
-# mappingSPARQL(sentences2)
-
 
 # print "Sentence is :", sentences[iS]._text()
 # print "Question POS list:","\n",s.descriibe_POS()
