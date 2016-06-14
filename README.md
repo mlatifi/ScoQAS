@@ -1,7 +1,7 @@
-# Question Preprocessi:
+# Question Pre-Processing:
 
-In the QAS architecure, there are common and specific components, modules, and KBs.
-This is the repository of the Ontology Based Question Answering System which process the Text questions. The QA system is based on NLP techniques and presented tuple template and NSIF. The QA system performs over ontologies not over free text and operates on two scenarios, one Closed-domain, where the domain is restricted by an ontology, which using a human-made ontology and the other is Open domain where the answers are retrieved from a LOD knowledge base.
+In the first step of the QA system architecture, NSIF of the question is built by applying Stanford CoreNLP Parser. The NSIF contains parsing information and dependency parsing results for corresponding question. It consists of word segmentation (tokenization), morphological analysis, lemmatization, POS tagging, and named entity recognition (NER) for every question separately. 
+
 
 Each components are released in their own branch. Check each componets's README for more information.
 # Component samples:
