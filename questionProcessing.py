@@ -395,18 +395,6 @@ from auxiliar import SENT as mysent
 print "Sentence is :", sentences[23]._text()
 sentences[23].describe()
 
-# getAllPredicates()
-# getAllPOS()
-
-#print mysent.describe()
-
-# r1 = databaseRules['WrPrA_2']
-##isInClass(s1,workingDirMajid)
-
-#print applyRuleToSentence(r1,s1)
-
-# applyRulesToSentences()
-
 
 s=sentences[23]
 import sys
@@ -420,55 +408,4 @@ slots4Classes(s,workingDirMajid)
 allinstances4Sentence(s,workingDirMajid)
 # isPersonIn_Ont(s,workingDirMajid,"i_en_proper_person")
 R=applyRuleToSentence(databaseRules['WoPropPr_1'],sentences[23])
-
-
-# iS=54
-# s=sentences[iS]
-# print "Sentence is :", sentences[iS]._text()
-# R=applyRulesToSentences('all','all')
-# R=applyRulesToSentence('all',iS)
-
-# removeTreesFromSentences()
-# mappingSPARQL(sentences2)
-
-
-# print "Sentence is :", sentences[iS]._text()
-# print "Question POS list:","\n",s.descriibe_POS()
-# print "Question Named Entity (NE) list:","\n",s.descriibe_NE()
-# print "Dependencies List: ",s.sint.describe(True)
-#
-# if R!=None:
-#     cs = s._constraints
-#     cs.describe()
-
-
-
-
-
-# classes4Sentence(s,workingDirMajid)
-
-# slots4Classes(s,workingDirMajid)
-# gen_graph(dot,workingDirMajid)
-
-
-
-
-# getAllNodeCurrentGraph(r1)
-# createGraphOntology()
-# addTriples()
-# creatGraphSentence(s,workingDirMajid)
-
-
-
-
-# print "\n","All CLASSES that were founded in sentence are:","\n"
-# isTokensInClass(s,workingDirMajid)
-# print "\n","All SLOTS that were founded in sentence are:  ","\n"
-# isTokensInSlot(s,workingDirMajid)
-# print "\n","All INSTANCES that were founded in sentence are: ","\n"
-# isTokensInInstance(s,workingDirMajid)
-
-# getAllPredicates()
-# getAllPOS()
-# getAllLemma()
 
