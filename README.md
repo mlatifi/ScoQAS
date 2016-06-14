@@ -10,6 +10,8 @@ You can use these samples as a reference or as a starting point for creating you
 
 Each components are released in their own branch. Check each componets's README for more information.
 # Component samples:
+- [NSIF/](https://github.com/mlatifi/OntoQAS/tree/NSIF) - Building NSIF
+
 - [Q-Preprocessing/](https://github.com/mlatifi/OntoQAS/tree/Q-Preprocessing) - Question Preprocessing
 
 - [QC/](https://github.com/mlatifi/OntoQAS/tree/QC) - Question Classifier
