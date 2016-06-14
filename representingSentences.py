@@ -32,17 +32,7 @@ from copy import deepcopy
 from nltk.corpus import wordnet as wn
 ##from nltk.app import wordfreq
 ##from matplotlib.pylab import da
-
-if user == 'horacioCluster':
-    sys.path.append('/home/usuaris/horacio/material/programs')
-    workingDir = '/home/usuaris/horacio/tackbp/process2012/data/'
-    workingDirAlicia = '/home/usuaris/chil/alicia/logs-kbp2012-Jul2013/'
-    workingDirJordi = '/home/usuaris/turmo/kbp2013/docs/preprocessed-docs-from-queries/'
-elif user == 'horacioWindowsLSI':
-    sys.path.append('L:/NQ/intercambio/material/programs')
-    workingDir = 'L:/NQ/intercambio/know2/tackbp/process2012/data/'
-    workingDirJordi = 'L:/NQ/intercambio/know2/tackbp/process2012/data/preprocessed-docs-from-queries/'
-elif user == 'majid':
+if user == 'majid':
     pythonPath='C:\Python27\lib\site-packages\graphviz'
     workingDir = 'D:\PhD\PhD Tesis\Project'
     workingDirMajid = 'D:/PhD/PhD Tesis/Project/RepresentingSentences/data/'
@@ -76,25 +66,6 @@ try:
     from auxiliarAcrophile import *
 except:
     pass
-##from pylab import *
-
-#try:
-#    import pylab
-#except ImportError:
-#    import warnings
-#    warnings.warn("nltk.app.wordfreq not loaded "
-#                     "(requires the pylab library).")
-#else:
-#    from wordfreq_app import app as wordfreq
-
-#from marianoFeliceDistances import *
-# try:
-  #  from compatible import *
-#except:
- #   pass
-
-## global
-
 
 
 ## classes
