@@ -344,39 +344,7 @@ databaseRules['WoPropPr_1'].addAction(QTclassAction('bindPersonOnt','bindPerson_
 databaseRules['WoPropPr_1'].addAction(QTclassAction('bindProperties','bindProperties(s,r)'))
 databaseRules['WoPropPr_1'].addAction(QTclassAction('bindWho','bindWho(s,r,0)'))
 
-# databaseRules['WoMembCmpProp_1']=QTclassrule('WoMembCmpProp_1','Who_Member_CompoundProperties')
-# databaseRules['WoMembCmpProp_1'].addCondition(QTclasscondition('CWho','isWho(s,r,0)'))
-# databaseRules['WoMembCmpProp_1'].addCondition(QTclasscondition('isMember','isMember(s,r)'))
-# databaseRules['WoMembCmpProp_1'].addCondition(QTclasscondition('isCompound_Properties','isCompound_Properties(s,r)'))
-# databaseRules['WoMembCmpProp_1'].addAction(QTclassAction('bindWho','bindWho(s,r,0)'))
-# databaseRules['WoMembCmpProp_1'].addAction(QTclassAction('bindMember','bindMember(s,r)'))
-# databaseRules['WoMembCmpProp_1'].addAction(QTclassAction('bindCompound_Properties','bindCompound_Properties(s,r)'))
 
-#
-# databaseRules['HmchPropPr_1']=QTclassrule('HmchPropPr_1','Howmuch_Properties_Person')
-# databaseRules['HmchPropPr_1'].addCondition(QTclasscondition('CHowmuch','isHowmuch(s,r,0)'))
-# databaseRules['HmchPropPr_1'].addCondition(QTclasscondition('isPerson','isPerson(s,r)'))
-# databaseRules['HmchPropPr_1'].addCondition(QTclasscondition('isProperties','isProperties(s,r)'))
-# databaseRules['HmchPropPr_1'].addAction(QTclassAction('bindHowmuch','bindHowmuch(s,r,0)'))
-# databaseRules['HmchPropPr_1'].addAction(QTclassAction('bindPerson','bindPerson(s,r)'))
-# databaseRules['HmchPropPr_1'].addAction(QTclassAction('bindProperties','bindProperties(s,r)'))
-
-#
-# databaseRules['WtASt_1']=QTclassrule('WtASt_1','What_Action_Status')
-# databaseRules['WtASt_1'].addCondition(QTclasscondition('CWhat','isWhat(s,r,0)'))
-# databaseRules['WtASt_1'].addCondition(QTclasscondition('isAction','isAction(s,r)'))
-# databaseRules['WtASt_1'].addCondition(QTclasscondition('isStatus','isStatus(s,r)'))
-# databaseRules['WtASt_1'].addAction(QTclassAction('bindWhat','bindWhat(s,r,0)'))
-# databaseRules['WtASt_1'].addAction(QTclassAction('bindAction','bindAction(s,r)'))
-# databaseRules['WtASt_1'].addAction(QTclassAction('bindStatus','bindStatus(s,r)'))
-#
-# databaseRules['WtPropPr_1']=QTclassrule('WtPropPr_1','What_Properties_Person')
-# databaseRules['WtPropPr_1'].addCondition(QTclasscondition('CWhat','isWhat(s,r,0)'))
-# databaseRules['WtPropPr_1'].addCondition(QTclasscondition('isPerson','isPerson(s,r)'))
-# databaseRules['WtPropPr_1'].addCondition(QTclasscondition('isProperties','isProperties(s,r)'))
-# databaseRules['WtPropPr_1'].addAction(QTclassAction('bindWhat','bindWhat(s,r,0)'))
-# databaseRules['WtPropPr_1'].addAction(QTclassAction('bindPerson','bindPerson(s,r)'))
-# databaseRules['WtPropPr_1'].addAction(QTclassAction('bindProperties','bindProperties(s,r)'))
 #
 workingDirMajid=databaseRules['WoPropPr_1'].workingDir
 databaseRules['WoPropPr_1'].removeFilesContent()
@@ -421,16 +389,4 @@ allinstances4Sentence(s,workingDirMajid)
 # isPersonIn_Ont(s,workingDirMajid,"i_en_proper_person")
 R=applyRuleToSentence(databaseRules['WoPropPr_1'],sentences[23])
 
-
-# iS=54
-# s=sentences[iS]
-# print "Sentence is :", sentences[iS]._text()
-# R=applyRulesToSentences('all','all')
-# R=applyRulesToSentence('all',iS)
-
-# print "Sentence is :", sentences[iS]._text()
-# print "Question POS list:","\n",s.descriibe_POS()
-# print "Question Named Entity (NE) list:","\n",s.descriibe_NE()
-# print "Dependencies List: ",s.sint.describe(True)
-#
 
