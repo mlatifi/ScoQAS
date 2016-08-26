@@ -9,11 +9,6 @@ __author__ = 'majid'
 # Creating Graph for Question
 #------------------------------------------------------------------------
 
-from graphviz import Digraph
-import networkx as nx
-import matplotlib.pyplot as plt
-import numpy
-
 
 
 def add_Node_Class(dot,Idx,Label):
@@ -85,7 +80,6 @@ def add_Node_Instance(dot,Idx,Label):
     graph2prologfile.write("\n")
     graph2prologfile.write(edgeIns)
     graph2prologfile.write("\n")
-
     graph2prologfile.close()
 
 
@@ -99,9 +93,6 @@ def add_Edge_Class2Inst(dot,edge,Lbl):
     Qvar=currentRule
     path=Qvar.workingDir + "graphsentence/"
     graph2prologfile = open(path + "generalGraph.txt", 'a+')
-
-    # print "\n Edge: Class ----> Instance: source,destination",edge
-    # dot.add_edge(*edge,Slot=Lbl, label=Lbl, color="Red", fontsize="11")
     classText="Edge" + "\t" + str(edge) + "\t:\t" + "{" + "\t" + Lbl + "\t"+ "}"
     graph2prologfile.write(classText)
     graph2prologfile.write("\n")
@@ -113,10 +104,6 @@ def add_Edge_Class2Class(dot,edge,Lbl):
     Qvar=currentRule
     path=Qvar.workingDir + "graphsentence/"
     graph2prologfile = open(path + "generalGraph.txt", 'a+')
-
-    # graph2prologfile = open("D:\PhD\PhD Tesis\Project\RepresentingSentences\data\graphsentence\constraintGraph.txt", 'a+')
-    # print "\n Edge: Class ----> Class: source,destination",edge
-    # dot.add_edge(*edge,Isa=Lbl, label=Lbl, color="Yellow", fontsize="11")
     classText="Edge" + "\t" + str(edge) + "\t:\t" + "{" + "\t" + Lbl + "\t"+ "}"
     graph2prologfile.write(classText)
     graph2prologfile.write("\n")
@@ -141,33 +128,5 @@ def gen_graph(dot,path):
     print "\n Subclass",Subclass
     nx.draw_networkx_edge_labels(dot,pos=pos)
     nx.write_dot(dot,path + 'generalOntology.dot')
-    # print "All of Nodes are:","\n",dot.nodes()
-    # for (u,d) in dot.nodes(data=True):
-    #     print "\n Node ",u,":  ",d
-    #     # print "Neighbors of:",u, dot.neighbors(u)
-    #
-    # print "All of Edges are:","\n", dot.edges()
-    # for (u,v,d) in dot.edges(data=True):
-    #     print "\n Edge: ",u, "--------->",v,":  ",d
-    #
-
-
-    # nx.draw(dot)
-    # plt.savefig(path + "path.png")
-    # plt.savefig(path + "question.pdf")
-
-    # nx.draw_networkx_nodes(dot,pos=pos,label=True)
-    # nx.draw_networkx(dot,pos=pos,with_labels=True,)
-
-    # nx.draw_networkx_labels(dot,pos=pos,labels=Instance)
-
-    # nx.draw_graphviz(dot)
-
-    # plt.show()
-    # print "One Node:",dot.node['60']
-    # plt.savefig(path + "question.pdf")
-    # dot1=dot
-    # print(dot1.source)
-    # dot1.render('sentence.gv')
-    # print"Grapgh is: ",dot.graph
-    # eps, pdf, pgf, png, ps, raw, rgba, svg, svgz.
+  
+ 
