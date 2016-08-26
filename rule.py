@@ -70,82 +70,12 @@ class QTclassrule(object):
         self.boundedSlotTypeWhere={}
         self.boundedInstanceWhere={}
 
-        self.boundedClassWhich={}
-        self.boundedSlotWhich={}
-        self.boundedInstanceWhich={}
-
-        self.boundedClassItem={}
-        self.boundedSubClassItem={}
-        self.boundedSlotItem={}
-        self.boundedSlotTypeItem={}
-        self.boundedInstanceItem={}
-
-        self.boundedClassWhere_in={}
-        self.boundedSubClassWhere_in={}
-        self.boundedSlotWhere_in={}
-        self.boundedSlotTypeWhere_in={}
-        self.boundedInstanceWhere_in={}
-
-        self.boundedClassWho={}
-        self.boundedSubClassWho={}
-        self.boundedSlotWho={}
-        self.boundedSlotTypeWho={}
-        self.boundedInstanceWho={}
-
-        self.boundedClassWhat={}
-        self.boundedSubClassWhat={}
-        self.boundedSlotWhat={}
-        self.boundedSlotTypeWhat={}
-        self.boundedInstanceWhat={}
-
-        self.boundedClassWhen={}
-        self.boundedSubClassWhen={}
-        self.boundedSlotWhen={}
-        self.boundedSlotTypeWhen={}
-        self.boundedInstanceWhen={}
-
-        self.boundedClassHowmuch={}
-        self.boundedSubClassHowmuch={}
-        self.boundedSlotHowmuch={}
-        self.boundedSlotTypeHowmuch={}
-        self.boundedInstanceHowmuch={}
-
-        self.boundedClassMemb={}
-        self.boundedSubClassMemb={}
-        self.boundedSlotMemb={}
-        self.boundedSlotTypeMemb={}
-        self.boundedInstanceMemb={}
-
-        self.boundedClassStatus={}
-        self.boundedSubClassStatus={}
-        self.boundedSlotStatus={}
-        self.boundedSlotTypeStatus={}
-        self.boundedInstanceStatus={}
-
-        self.boundedClassEnt={}
-        self.boundedSubClassEnt={}
-        self.boundedSlotEnt={}
-        self.boundedSlotTypeEnt={}
-        self.boundedInstanceEnt={}
 
         self.boundedClassPerson={}
         self.boundedSubClassPerson={}
         self.boundedSlotPerson={}
         self.boundedSlotTypePerson={}
         self.boundedInstancePerson={}
-
-        self.boundedClassCmpProp={}
-        self.boundedSubClassCmpProp={}
-        self.boundedSlotCmpProp={}
-        self.boundedSlotTypeCmpProp={}
-        self.boundedInstanceCmpProp={}
-
-        self.boundedClassProp={}
-        self.boundedSubClassProp={}
-        self.boundedSlotProp={}
-        self.boundedSlotTypeProp={}
-        self.boundedInstanceProp={}
-
 
     def addCondition(self,c):
         self.conds.append(c)
@@ -228,38 +158,6 @@ class QTclassrule(object):
         else:
             return False
 
-    def addBoundedClassWho(self,bindClassW0,tk,i):
-        if not(self.existBoundedClassWho(bindClassW0,tk,1)):
-            self.boundedClassWho[tk,i]=bindClassW0
-            # print "This class added to list ClassWhere_in",bindClassW0,tk,i
-            return True
-        else:
-            return False
-
-    def addBoundedClassWhen(self,bindClassW0,tk,i):
-        if not(self.existBoundedClassWhen(bindClassW0,tk,1)):
-            self.boundedClassWhen[tk,i]=bindClassW0
-            # print "This class added to list ClassWhere_in",bindClassW0,tk,i
-            return True
-        else:
-            return False
-
-
-    def addBoundedClassWhat(self,bindClassW0,tk,i):
-        if not(self.existBoundedClassWhat(bindClassW0,tk,1)):
-            self.boundedClassWhat[tk,i]=bindClassW0
-            # print "This class added to list ClassWhere_in",bindClassW0,tk,i
-            return True
-        else:
-            return False
-
-    def addBoundedClassHowmuch(self,bindClassHM0,tk,i):
-        if not(self.existBoundedClassHowmuch(bindClassHM0,tk,1)):
-            self.boundedClassHowmuch[tk,i]=bindClassHM0
-            return True
-        else:
-            return False
-
     def addBoundedClassPerson(self,bindClassP0,tk,i):
         if not(self.existBoundedClassPerson(bindClassP0,tk,1)):
             self.boundedClassPerson[tk,i]=bindClassP0
@@ -274,67 +172,6 @@ class QTclassrule(object):
         else:
             return False
 
-
-    def addBoundedClassStatus(self,bindClassStatus0,tk,i):
-        if not(self.existBoundedClassStatus(bindClassStatus0,tk,1)):
-            self.boundedClassStatus[tk,i]=bindClassStatus0
-            return True
-        else:
-            return False
-
-
-    def addBoundedClassCmpProp(self,bindClassCmpProp0,tk,i):
-        if not(self.existBoundedClassCmpProp(bindClassCmpProp0,tk,1)):
-            self.boundedClassCmpProp[tk,i]=bindClassCmpProp0
-            return True
-        else:
-            return False
-
-    def addBoundedClassEnt(self,bindClassEnt0,tk,i):
-        if not(self.existBoundedClassEnt(bindClassEnt0,tk,1)):
-            self.boundedClassEnt[tk,i]=bindClassEnt0
-            return True
-        else:
-            return False
-
-
-    def addBoundedSubClass(self,bindSubClass,tk,i):
-        bindSubClasslocal=bindSubClass
-        if not(self.existBoundedSubClass(bindSubClass,tk,i)):
-            self.boundedSubClass[tk,i]=bindSubClasslocal
-            self.boundedSubClass[tk,i][0]=bindSubClasslocal[0]
-            self.boundedSubClass[tk,i][1]=bindSubClasslocal[1]
-
-            return True
-
-        else:
-            return False
-
-    def addBoundedSubClassWhere_in(self,bindSubClassW,bindSubClassW0,bindSubClassW1,tk,i):
-        bindSubClasslocal=bindSubClassW
-        if not(self.existBoundedSubClassWhere_in(bindSubClassW0,bindSubClassW1,tk,i)):
-            self.boundedSubClassWhere_in[tk,i]=bindSubClasslocal
-            self.boundedSubClassWhere_in[tk,i][0]=bindSubClassW0
-            self.boundedSubClassWhere_in[tk,i][1]=bindSubClassW1
-
-            return True
-
-        else:
-            return False
-
-    def addBoundedSubClassWho(self,bindSubClassW,bindSubClassW0,bindSubClassW1,tk,i):
-        bindSubClasslocal=bindSubClassW
-        if not(self.existBoundedSubClassWho(bindSubClassW0,bindSubClassW1,tk,i)):
-            self.boundedSubClassWho[tk,i]=bindSubClasslocal
-            self.boundedSubClassWho[tk,i][0]=bindSubClassW0
-            self.boundedSubClassWho[tk,i][1]=bindSubClassW1
-
-            return True
-
-        else:
-            return False
-
-
     def addBoundedSubClassPerson(self,bindSubClassP,bindSubClassP0,bindSubClassP1,tk,i):
         bindSubClasslocal=bindSubClassP
         if not(self.existBoundedSubClassPerson(bindSubClassP0,bindSubClassP1,tk,i)):
@@ -346,51 +183,6 @@ class QTclassrule(object):
 
         else:
             return False
-
-
-    def addBoundedSlot(self,bindSlot,tk,i):
-        bindSlotlocal=bindSlot
-        if not(self.existBoundedSlot(bindSlot,tk,i)):
-            self.boundedSlot[tk,i]=bindSlotlocal
-            self.boundedSlot[tk,i][0]=bindSlotlocal[0]
-            self.boundedSlot[tk,i][1]=bindSlotlocal[1]
-            return True
-        else:
-            return False
-
-    def addBoundedSlots4Classes(self,bindSlot4Class,bindSlot4Class0,bindSlot4Class1,tk,i):
-        bindSlot4Clslocal=bindSlot4Class
-        if not(self.existBoundedSlot4Class(bindSlot4Class0,bindSlot4Class1,tk,i)):
-            self.boundedSlot4Class[tk,i]=bindSlot4Clslocal
-            self.boundedSlot4Class[tk,i][0]=bindSlot4Class0
-            self.boundedSlot4Class[tk,i][1]=bindSlot4Class1
-            return True
-        else:
-            return False
-
-
-    def addBoundedExactSlotAnswer(self,bindExSlotAnswer,bindExSlotAnswer0,bindExSlotAnswer1,tk,i):
-        bindSlotlocal=bindExSlotAnswer
-        if not(self.existBoundedExactSlotAnswer(bindExSlotAnswer0,bindExSlotAnswer1,tk,i)):
-            self.boundedExactSlotAnswer[tk,i]=bindSlotlocal
-            self.boundedExactSlotAnswer[tk,i][0]=bindExSlotAnswer0
-            self.boundedExactSlotAnswer[tk,i][1]=bindExSlotAnswer1
-            return True
-        else:
-            return False
-
-
-    def addBoundedSlotItem(self,bindSlotItem,bindSlotItem0,bindSlotItem1,tk,i):
-        bindSlotlocal=bindSlotItem
-        if not(self.existBoundedSlotItem(bindSlotItem0,bindSlotItem1,tk,i)):
-            # print "WOOW1!!, This slot added to SlotWhere_in,itk,i",bindSlotW0,bindSlotW1,tk,i
-            self.boundedSlotItem[tk,i]=bindSlotlocal
-            self.boundedSlotItem[tk,i][0]=bindSlotItem0
-            self.boundedSlotItem[tk,i][1]=bindSlotItem1
-            return True
-        else:
-            return False
-
 
     def existBoundedClassWhere(self,ex_bindClassW0,tk,i):
 
