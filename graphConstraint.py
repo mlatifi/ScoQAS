@@ -9,10 +9,6 @@ __author__ = 'majid'
 # Creating Graph for Variables of Constraint
 #------------------------------------------------------------------------
 
-from graphviz import Digraph
-import networkx as nx
-import matplotlib.pyplot as plt
-import numpy
 
 def build_Constraint_Prolog_Where_Person_Action(s,workingdirectory):
     global currentRule
@@ -1105,44 +1101,6 @@ def build_Constraint_Prolog_When_Person_Properties(s,workingdirectory):
 
 
 
-def mergeSentenceGraph(s,workingdirectory):
-    global currentRule
-    pathgraph=workingdirectory + "graphsentence/"
-    from rule import currentRule
-    Qvar=currentRule
-    dot1=Qvar.currentConsDGraph
-    dot2=Qvar.currentDGraph
-    dot3=Qvar.currentMergeDGraph
-    dot3=nx.union(dot1,dot2)
-    gen_CombineGraph(dot3,pathgraph)
-
-
-def add_Node_Arg(dot,Idx,posArg):
-    global currentRule
-    from rule import currentRule
-    Qvar=currentRule
-    path=Qvar.workingDir + "graphsentence/"
-    graph2prologfile = open(path + "constraintGraph.txt", 'a+')
-    typeIdx=isinstance(Idx,list)
-    if typeIdx==True:
-        ln=len(Idx)
-        i=0
-        while (i< ln):
-            posInt=int(posArg) + i
-            dot.add_node(Idx[i],pos=(posInt,posInt), Arg=Idx[i], label=Idx[i],color="Red", fontsize="11" )
-            classText="Node" + "\t" + str(Idx[i]) + "\t:\t" + "{" + "\t" + "Arg :" + "\t" + str(posArg) + "\t" + "}"
-            graph2prologfile.write(classText)
-            graph2prologfile.write("\n")
-            i=i+1
-    else:
-        posInt=int(posArg)
-        dot.add_node(Idx,pos=(posInt,posInt), Arg=Idx, label=Idx,color="Red", fontsize="11" )
-        classText="Node" + "\t" + str(Idx) + "\t:\t" + "{" + "\t" + "Arg :" + "\t" + str(posArg) + "\t" + "}"
-        graph2prologfile.write(classText)
-        graph2prologfile.write("\n")
-
-    graph2prologfile.close()
-
 def add_Node_Var(dot,Idx):
     global currentRule
     from rule import currentRule
@@ -1162,16 +1120,6 @@ def add_Node_Var(dot,Idx):
 
     return posInt
 
-def add_Node_Instance(dot,Idx,Label):
-    # graph2prologfile = open("D:\PhD\PhD Tesis\Project\RepresentingSentences\data\graphsentence\constraintGraph.txt", 'a+')
-    posInt=int(Idx)
-    print "Lable for Class",Label
-    dot.add_node(Label,pos=(posInt,posInt), Instance=Label, label=Label, color="Red", fontsize="10")
-    # classText="Node" + "\t" + str(Idx) + "\t:\t" + "{" + "Instance :" + "\t" + str(Label) + "}"
-    # graph2prologfile.write(classText)
-    # graph2prologfile.write("\n")
-    # graph2prologfile.close()
-
 
 def add_Node_Subclass(dot,Idx,Label):
     # graph2prologfile = open("D:\PhD\PhD Tesis\Project\RepresentingSentences\data\graphsentence\constraintGraph.txt", 'a+')
@@ -1188,45 +1136,6 @@ def add_Edge_Slot(dot,src,dest):
     print "Edge Slot: source,destination",src,dest
     dot.add_edge(src, dest, 'link Slot')
 
-def add_Edge_Var2tk(dot,edge,Lbl):
-    global currentRule
-    from rule import currentRule
-    Qvar=currentRule
-    path=Qvar.workingDir + "graphsentence/"
-    graph2prologfile = open(path + "constraintGraph.txt", 'a+')
-    # print "Edge Var---> Token: source,destination",edge
-    dot.add_edge(*edge,Predicate=Lbl, label=Lbl, color="Red", fontsize="11")
-    classText="Edge" + "\t" + str(edge) + "\t:\t" + "{" + "\t" + str(Lbl) + "\t" + "}"
-    graph2prologfile.write(classText)
-    graph2prologfile.write("\n")
-    graph2prologfile.close()
-
-
-def add_Edge_Answer(dot,edge,Lbl):
-    global currentRule
-    from rule import currentRule
-    Qvar=currentRule
-    path=Qvar.workingDir + "graphsentence/"
-    graph2prologfile = open(path + "constraintGraph.txt", 'a+')
-    print "Edge Answer: source,destination",edge
-    dot.add_edge(*edge,Predicate=Lbl, label=Lbl, color="Black", fontsize="12")
-    classText="Edge" + "\t" + str(edge) + "\t:\t" + "{" + "\t" + str(Lbl) + "\t" + "}"
-    graph2prologfile.write(classText)
-    graph2prologfile.write("\n")
-    graph2prologfile.close()
-
-def add_Edge_Var2Class(dot,edge,Lbl):
-    global currentRule
-    from rule import currentRule
-    Qvar=currentRule
-    path=Qvar.workingDir + "graphsentence/"
-    graph2prologfile = open(path + "constraintGraph.txt", 'a+')
-    # print "Edge Variable---> Class: source,destination",edge
-    dot.add_edge(*edge,Isa=Lbl, label=Lbl, color="Yellow", fontsize="11")
-    classText="Edge" + "\t" + str(edge) + "\t:\t" + "{" + "\t" + str(Lbl) + "\t" + "}"
-    graph2prologfile.write(classText)
-    graph2prologfile.write("\n")
-    graph2prologfile.close()
 
 def add_Edge_Var2Slot(dot,edge,Lbl):
     global currentRule
@@ -1309,30 +1218,6 @@ def gen_CombineGraph(dot,path):
     nx.write_dot(dot,path + 'graphCombined.dot')
     print "All of Nodes are:", dot.nodes(data=True)
 
-
-
-
-
-
-    # nx.draw(dot)
-    # plt.savefig(path + "path.png")
-    # plt.savefig(path + "question.pdf")
-
-    # nx.draw_networkx_nodes(dot,pos=pos,label=True)
-    # nx.draw_networkx(dot,pos=pos,with_labels=True,)
-
-    # nx.draw_networkx_labels(dot,pos=pos,labels=Instance)
-
-    # nx.draw_graphviz(dot)
-
-    # plt.show()
-    # print "One Node:",dot.node['60']
-    # plt.savefig(path + "question.pdf")
-    # dot1=dot
-    # print(dot1.source)
-    # dot1.render('sentence.gv')
-    # print"Grapgh is: ",dot.graph
-    # eps, pdf, pgf, png, ps, raw, rgba, svg, svgz.
 
 
 
