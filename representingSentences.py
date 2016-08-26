@@ -8,64 +8,6 @@
 # Created:     2014/04/28
 # representing sentences
 #-----------------------------------------------------------------------------
-user = 'majid'
-
-import re
-import string
-import sys
-import pickle
-import nltk
-##import numpy
-##import pylab
-
-
-#from nltk import *
-from types import StringType, ListType
-from nltk import stem
-from nltk import tokenize
-from nltk import tree
-from os import listdir,system, fsync, remove
-from os.path import split, splitext, abspath, exists, isfile
-from math import *
-import uuid
-from copy import deepcopy
-from nltk.corpus import wordnet as wn
-##from nltk.app import wordfreq
-##from matplotlib.pylab import da
-if user == 'majid':
-    pythonPath='C:\Python27\lib\site-packages\graphviz'
-    workingDir = 'D:\PhD\PhD Tesis\Project'
-    workingDirMajid = 'D:/PhD/PhD Tesis/Project/RepresentingSentences/data/'
-    sys.path.append(workingDir+'..\..\material')
-    sys.path.append(workingDir+'\RepresentingSentences\data')
-    sys.path.append(pythonPath)
-
-
-
-try:
-    from basic import *
-except:
-    pass
-try:
-    from auxiliar import *
-except:
-    pass
-
-from rule import *
-
-try:
-    from auxiliarWP import *
-except:
-    pass
-
-from auxiliarWN import *
-
-from managingOntology import *
-
-try:
-    from auxiliarAcrophile import *
-except:
-    pass
 
 
 ## classes
@@ -512,12 +454,5 @@ def processMajid(inF,outDir):
     savingSint(sentences, outDir+'sint/depconll.sint')
     savingSent(sentences, outDir+'sent/depconll.sent')
 
-
-
-
-
-## main
-
-##processMajid(workingDirMajid+'depconll.conll',workingDirMajid)
 
 
