@@ -9,26 +9,6 @@ __author__ = 'majid'
 # Created:     2014/06/06
 # classes used by RepresentingSentences for QAS
 #-----------------------------------------------------------------------------
-
-import string
-import re
-from rule import *
-from representingSentences import *
-from Constraints import *
-from ExpectedAnswerTypes import *
-from Answers import *
-from managingOntology import *
-from recursive_SOP_managingOntology import *
-from Recursive_SPARQL_Ontology import *
-from Recursive_SPARQL_Person import *
-from graphConstraint import *
-from prologGraph import *
-from graphSentence import *
-from mergePrologGraph import *
-
-
-
-##functions
 def removeTreesFromSentences():
     global sentences, sentences2
     sentences2 =sentences
@@ -71,20 +51,6 @@ def applyRuleToSentence(r,s):
     return None
 
 
-def applyRulesToSentences():
-    global sentences, databaseRules, workingDirMajid, sint
-    for iR in databaseRules:
-        r = databaseRules[iR]
-
-        for iS in range(len(sentences)):
-            s = sentences[iS]
-            print 'applying rule', iR, 'to sentence', iS
-            R=applyRuleToSentence(r,s)
-            print '\n Rule Type & Rule ID  & Rule Conditions are : ', R
-            print "-----------------------------------------------------------------------"
-
-           # print sint._dependencies
-
 
 def applyRulesToSentencesRange(iR,iS1,iS2):
     global sentences, databaseRules
@@ -113,140 +79,6 @@ def applyRulesToSentencesRange(iR,iS1,iS2):
     print  "\n","Result of Applying Rules To Sentences : ",ok
 
 
-def applyRulesToSentences(iR,iS):
-    global sentences, databaseRules
-    if iR == 'all':
-        iR = databaseRules.keys()
-
-    if iS == 'all':
-        iS = range(len(sentences))
-
-    ok=False
-    id=0
-    for s in iS:
-        # print "Rule ID: ",databaseRules[r].id, " databaseRules[r], len",databaseRules[r].type, len(lR)
-        print "Sentence NO. ", id, "is :", sentences[s]._text()
-        print "Question POS list:","\n",sentences[s].descriibe_POS()
-        print "Question Named Entity (NE) list:","\n",sentences[s].descriibe_NE()
-        print "Dependencies List: ",sentences[s].sint.describe(True)
-
-        for r in iR:
-            R = applyRuleToSentence(databaseRules[r],sentences[s])
-
-            if R:
-                print 'Applying Rule: ', databaseRules[r].type, '--->  To Question: ', sentences[s]._text()
-                print 'Rule Success Matched!!', r, s, R ,"\n"
-                ok = True
-        id=id+1
-    print  "\n","Result of Applying Rules To Sentences : ",ok
-
-
-def applyRulesToSentence(iR,iS):
-    global sentences, databaseRules
-    priorityRules=[]
-    ok=False
-    # print "Rule ID: ",databaseRules[r].id, " databaseRules[r], len",databaseRules[r].type, len(lR)
-    print "Sentence NO. ", iS, "is :", sentences[iS]._text()
-    print "Question POS list:","\n",sentences[iS].descriibe_POS()
-    print "Question Named Entity (NE) list:","\n",sentences[iS].descriibe_NE()
-    print "Dependencies List: ",sentences[iS].sint.describe(True)
-
-    if iR == 'all':
-        iR = databaseRules.keys()
-    elif iR in databaseRules.keys():
-        print "Requested Rule to run is",iR
-        r=iR
-        R = applyRuleToSentence(databaseRules[r],sentences[iS])
-
-        if R:
-            print 'Applying Rule: ', databaseRules[r].type, '--->  To Question: ', sentences[iS]._text()
-            print 'Rule Success Matched!!', r, iS, R
-            ok = True
-            priorityRules.append(databaseRules[r].id)
-            toMapSPARQLFormat(iS,sentences[iS],databaseRules[r])
-        print "\n","Result of Applying Rules To Sentences : ",ok,priorityRules
-        return ok
-
-    else:
-        print "Request Rule is not defined!!"
-        return False
-
-    for r in iR:
-        R = applyRuleToSentence(databaseRules[r],sentences[iS])
-
-        if R:
-            print 'Applying Rule: ', databaseRules[r].type, '--->  To Question: ', sentences[iS]._text()
-            print 'Rule Success Matched!!', r, iS, R
-            ok = True
-            priorityRules.append(databaseRules[r].id)
-            toMapSPARQLFormat(iS,sentences[iS],databaseRules[r])
-    print "\n","Result of Applying Rules To Sentences : ",ok,priorityRules
-
-
-
-def getAllPredicates():
-    global sentences
-    predicates={}
-    for iS in sentences:
-        s = sentences[iS]
-        for a1,a2,p in s.sint._dependencies:
-            if p not in predicates:
-                predicates[p]=1
-            else:
-                predicates[p]+=1
-            if p=="nsubjpass":
-                print "nsubjpass:",iS, sentences[iS]._text(),s._text()
-
-    for p in predicates:
-        print p,predicates[p]
-        
-
-
-
-def getAllPOS():
-    global sentences
-    poses={}
-    for iS in sentences:
-        s = sentences[iS]
-        tks=s._get_tokens()
-        for itk in range(len(tks)):
-            tk=tks[itk]
-            pos=tk._pos()
-            if pos not in poses:
-                poses[pos]=1
-            else:
-                poses[pos]+=1
-
-    for p in poses:
-        print p,poses[p]
-
-
-def getAllLemma():
-    global sentences
-    lemmas={}
-    for iS in sentences:
-        s = sentences[iS]
-        tks=s._get_tokens()
-        for itk in range(len(tks)):
-            tk=tks[itk]
-            lema=tk._lemma()
-            if lema not in lemmas:
-                lemmas[lema]=1
-            else:
-                lemmas[lema]+=1
-
-    for l in lemmas:
-        print "Accounting of lemma ",l,lemmas[l]
-
-
-def getAllLevenEshtein():
-    global sentences,workingDirMajid
-    for iS in sentences:
-        s = sentences[iS]
-        print 'Applying LevenEshtein to sentence ', iS
-        instances4Sentence(s,workingDirMajid)
-
-
 def getAllNodeCurrentGraph(r):
     global sentences
     g=Graph(r.currentGraph,r.currentGraph_Inst)
@@ -257,21 +89,6 @@ def getAllNodeCurrentGraph(r):
 databaseRules={}
 
 ##   YesNO Question Part       ##################
-
-databaseRules['IsthrPrS_1']=QTclassrule('IsthrPrS_1','IsThere_Person_Status')
-databaseRules['IsthrPrS_1'].addCondition(QTclasscondition('Isthere','isIsthere(s,r,0)'))
-databaseRules['IsthrPrS_1'].addCondition(QTclasscondition('isPerson','isPerson(s,r)'))
-databaseRules['IsthrPrS_1'].addCondition(QTclasscondition('isStatus','isStatus(s,r)'))
-databaseRules['IsthrPrS_1'].addAction(QTclassAction('bindPerson','bindPerson(s,r)'))
-databaseRules['IsthrPrS_1'].addAction(QTclassAction('bindStatus','bindStatus(s,r)'))
-
-databaseRules['IsthrEntS_1']=QTclassrule('IsthrEntS_1','IsThere_Entity_Status')
-databaseRules['IsthrEntS_1'].addCondition(QTclasscondition('Isthere','isIsthere(s,r,0)'))
-databaseRules['IsthrEntS_1'].addCondition(QTclasscondition('isEntity','isEntity(s,r)'))
-databaseRules['IsthrEntS_1'].addCondition(QTclasscondition('isStatus','isStatus(s,r)'))
-databaseRules['IsthrEntS_1'].addAction(QTclassAction('bindEntity','bindEntity(s,r)'))
-databaseRules['IsthrEntS_1'].addAction(QTclassAction('bindStatus','bindStatus(s,r)'))
-
 
 
 ##   Where Person Action Question Part       ##################
@@ -337,24 +154,6 @@ databaseRules['WoPropPr_1'].addAction(QTclassAction('bindProperties','bindProper
 databaseRules['WoPropPr_1'].addAction(QTclassAction('bindWho','bindWho(s,r,0)'))
 
 #
-# databaseRules['WoCmpPropPr_1']=QTclassrule('WoCmpPropPr_1','Who_CompoundProperties_Person')
-# databaseRules['WoCmpPropPr_1'].addCondition(QTclasscondition('CWho','isWho(s,r,0)'))
-# databaseRules['WoCmpPropPr_1'].addCondition(QTclasscondition('isPerson','isPerson(s,r)'))
-# databaseRules['WoCmpPropPr_1'].addCondition(QTclasscondition('isCompound_Properties','isCompound_Properties(s,r)'))
-# databaseRules['WoCmpPropPr_1'].addAction(QTclassAction('bindWho','bindWho(s,r,0)'))
-# databaseRules['WoCmpPropPr_1'].addAction(QTclassAction('bindPerson','bindPerson(s,r)'))
-# databaseRules['WoCmpPropPr_1'].addAction(QTclassAction('bindCompound_Properties','bindCompound_Properties(s,r)'))
-
-
-# databaseRules['WchPropEnt_1']=QTclassrule('WchPropEnt_1','Which_Properties_Entity')
-# databaseRules['WchPropEnt_1'].addCondition(QTclasscondition('CWhich','isWhich(s,r,0)'))
-# databaseRules['WchPropEnt_1'].addCondition(QTclasscondition('isEntity','isEntity(s,r)'))
-# databaseRules['WchPropEnt_1'].addCondition(QTclasscondition('isProperties','isProperties(s,r)'))
-# databaseRules['WchPropEnt_1'].addAction(QTclassAction('bindWhich','bindWhich(s,r)'))
-# databaseRules['WchPropEnt_1'].addAction(QTclassAction('bindEntity','bindEntity(s,r)'))
-# databaseRules['WchPropEnt_1'].addAction(QTclassAction('bindProperties','bindProperties(s,r)'))
-#
-#
 workingDirMajid=databaseRules['WoPropPr_1'].workingDir
 databaseRules['WoPropPr_1'].removeFilesContent()
 processMajid(workingDirMajid+'depconll.conll', workingDirMajid)
@@ -363,11 +162,6 @@ from representingSentences import buildSintDep
 # from representingSentences import workingDirMajid
 
 from auxiliar import SENT as mysent
-
-# for iS in sentences:
-#         s = sentences[iS]
-#         print "Sentence is :", sentences[iS]._text()
-#         sentences[iS].describe()
 
 print "Sentence is :", sentences[23]._text()
 sentences[23].describe()
