@@ -23,9 +23,9 @@ Each components are released in their own branch. Check each componets's README 
 This project is built by **Majid Latifi** .
 I developed ScoQAS for modeling and gathering data when following a certain theory/methodology in Articial Intelligence. Plesae cite these papers when you are using this code:
 
-1- Latifi, M., Rodríguez, H., & Sànchez-Marrè, M. (2017). ScoQAS: A Semantic-based Closed and Open Domain Question Answering System. Procesamiento del Lenguaje Natural, 59, 73-80.
+1- Latifi, M., Rodríguez, H., & Sànchez-Marrè, M. (2017). [ScoQAS: A Semantic-based Closed and Open Domain Question Answering System](http://journal.sepln.org/sepln/ojs/ojs/index.php/pln/article/view/5495). Procesamiento del Lenguaje Natural, 59, 73-80.
 
-2- Latifi, M., & Sànchez-Marrè, M. (2013, October). The Use of NLP Interchange Format for Question Answering in Organizations. In CCIA (pp. 235-244).
+2- Latifi, M., & Sànchez-Marrè, M. (2013, October). [The Use of NLP Interchange Format for Question Answering in Organizations](http://ebooks.iospress.nl/publication/35253). In CCIA (pp. 235-244).
 
 # License:
 
